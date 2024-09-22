@@ -5,13 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: layala-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 15:58:31 by layala-s          #+#    #+#             */
-/*   Updated: 2024/09/17 15:58:33 by layala-s         ###   ########.fr       */
+/*   Created: 2024/09/22 19:15:04 by layala-s          #+#    #+#             */
+/*   Updated: 2024/09/22 19:15:09 by layala-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	main()
 {
+	ft_printf("oho");
+	return 0;
 }

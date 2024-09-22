@@ -35,4 +35,3 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	temp->next = *stack_a;
 	*stack_a = temp;
 }
-

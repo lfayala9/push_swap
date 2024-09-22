@@ -21,9 +21,12 @@ typedef struct s_stack
 {
 	int				val;
 	int				pos;
+	int				cheap_move;
+	int				is_above;
+	struct s_stack	*target;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-} t_stack;
+}	t_stack;
 
 int	ft_printf(char const *s, ...);
 

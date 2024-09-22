@@ -21,7 +21,6 @@ void	rotate(t_stack **stack)
 		return ;
 	first = *stack;
 	last = *stack;
-
 	while (last->next)
 		last = last->next;
 	*stack = first->next;
