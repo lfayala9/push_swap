@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: layala-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 19:15:04 by layala-s          #+#    #+#             */
-/*   Updated: 2024/09/22 19:15:09 by layala-s         ###   ########.fr       */
+/*   Created: 2024/03/14 16:02:34 by layala-s          #+#    #+#             */
+/*   Updated: 2024/03/19 15:19:01 by layala-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	init_stack(t_stack **stack_a, t_stack **stack_b)
+int64_t	ft_atoll(const char *string)
 {
+	size_t	i;
+	int64_t	result;
+	int32_t	sign;
 
-}
-
-int	main(int ac, char **av)
-{
-	t_stack	**stack_a;
-	t_stack	**stack_b;
-
-	if (ac == 1)
-		few_arguments();
-	return 0;
+	i = 0;
+	result = 0;
+	sign = 1;
+	while ((string[i] >= 9 && string[i] <= 13) || string[i] == 32)
+		i++;
+	if (string[i] == '-')
+		sign = -1;
+	if (string[i] == '-' || string[i] == '+')
+		i++;
+	while (ft_isdigit(string[i]))
+		result = result * 10 + (string[i++] - '0');
+	return (sign * result);
 }

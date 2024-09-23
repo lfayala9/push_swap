@@ -15,6 +15,7 @@ OBJS = $(SRCS:.c=.o)
 SRCS = ./instructions/rotate.c \
 	   ./instructions/push.c \
 	   ./instructions/swap.c \
+	   ./error_handlers/arg_errors.c \
 
 all: push_swap
 

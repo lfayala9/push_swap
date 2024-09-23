@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdint.h>
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
@@ -46,6 +47,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_isdigit(int num);
 int		ft_atoi(const char *string);
+int64_t	ft_atoll(const char *string);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);

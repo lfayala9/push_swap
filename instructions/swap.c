@@ -31,18 +31,18 @@ void	swap(t_stack **stack)
 void	sa(t_stack **stack_a)
 {
 	swap(stack_a);
-	ft_printf("sa");
+	ft_printf("sa\n");
 }
 
 void	sb(t_stack **stack_b)
 {
 	swap(stack_b);
-	ft_printf("sb");
+	ft_printf("sb\n");
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	ft_printf("ss");
+	ft_printf("ss\n");
 }
