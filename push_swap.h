@@ -30,6 +30,7 @@ typedef struct s_stack
 }	t_stack;
 
 /* LIBFT FUNCTIONS */
+char	**ft_split(char const *s, char c);
 int		ft_printf(char const *s, ...);
 
 /*MOVES*/
@@ -43,6 +44,10 @@ void	swap(t_stack **stack);
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
+void	reverse_rotate(t_stack **stack);
+void	rra(t_stack **stack_a);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
+void	rrb(t_stack **stack_b);
 
 /*ERROR HANDLERS*/
 void	few_arguments(void);

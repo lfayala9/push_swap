@@ -66,7 +66,7 @@ SRCS		= ft_atoi.c \
 
 OBJS		= ${SRCS:.c=.o}
 
-CC			= gcc -Wall -Wextra -Werror
+CC			= @gcc -Wall -Wextra -Werror
 
 %.o: %.c libft.h
 			${CC} -I. -c $< -o ${<:.c=.o}

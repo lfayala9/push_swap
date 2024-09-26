@@ -12,17 +12,42 @@
 
 #include "push_swap.h"
 
-void	init_stack(t_stack **stack_a, t_stack **stack_b)
+t_stack	*init_stack(t_stack **stack, char **av)
 {
+	t_stack	*node;
+	t_stack	*new_node;
+	int		i;
 
+	i = 0;
+	while (av[++i])
+	{
+		new_node = (t_stack *)malloc(sizeof(t_stack));
+		if (!new_node)
+			return (NULL);
+		new_node->val = ft_atoll(av[i]);
+		new_node->next = NULL;
+		if (*stack == NULL)
+		{
+			*stack = new_node;
+			node = new_node;
+		}
+		else
+		{
+			node->next = new_node;
+			node = new_node;
+		}
+	}
+	return (*stack);
 }
 
 int	main(int ac, char **av)
 {
-	t_stack	**stack_a;
-	t_stack	**stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-	if (ac == 1)
-		few_arguments();
-	return 0;
+	stack_a = NULL;
+	stack_b = NULL;
+	if (ac == 2)
+		av = ft_split(av[1], ' ');
+	return (0);
 }

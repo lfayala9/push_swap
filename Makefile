@@ -11,11 +11,14 @@
 # **************************************************************************** #
 
 FLAGS = -Wall -Wextra -Werror
-OBJS = $(SRCS:.c=.o)
-SRCS = ./instructions/rotate.c \
+
+SRCS = ./instructions/reverse_rotate.c \
+	   ./instructions/rotate.c \
 	   ./instructions/push.c \
 	   ./instructions/swap.c \
 	   ./error_handlers/arg_errors.c \
+
+OBJS = $(SRCS:.c=.o)
 
 all: push_swap
 
