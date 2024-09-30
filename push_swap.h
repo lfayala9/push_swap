@@ -51,5 +51,6 @@ void	rrb(t_stack **stack_b);
 
 /*ERROR HANDLERS*/
 void	few_arguments(void);
+void	check_dup(int ac, char **av);
 
 #endif

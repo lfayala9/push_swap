@@ -17,3 +17,24 @@ void	few_arguments(void)
 	write(2, "USAGE: ./push_swap '<ARG 1> <ARG 2> <ARG 3> ...'", 49);
 	exit(EXIT_FAILURE);
 }
+void	check_dup(int ac, char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = i + 1;
+		while (j < ac)
+		{
+			if (ft_atoll(av[i]) == ft_atoll(av[j]))
+			{
+				write(2, "ERROR: Duplicates are forbidden", 32);
+				exit(EXIT_FAILURE);
+			}
+			j++;
+		}
+		i++;
+	}
+}
