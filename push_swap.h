@@ -31,7 +31,11 @@ typedef struct s_stack
 
 /* LIBFT FUNCTIONS */
 char	**ft_split(char const *s, char c);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+size_t	ft_strlen(const char *str);
 int		ft_printf(char const *s, ...);
+int		ft_isdigit(int num);
+
 
 /*MOVES*/
 void	pb(t_stack **stack_a, t_stack **stack_b);
@@ -52,5 +56,6 @@ void	rrb(t_stack **stack_b);
 /*ERROR HANDLERS*/
 void	few_arguments(void);
 void	check_dup(int ac, char **av);
+void	check_input(int ac, char **av);
 
 #endif

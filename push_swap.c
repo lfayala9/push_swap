@@ -56,6 +56,7 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	check_input(ac, av);
 	if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
@@ -63,7 +64,6 @@ int	main(int ac, char **av)
 	}
 	else if (ac > 2)
 		stack_a = init_stack(&stack_a, av, 1);
-	check_dup(ac, av);
 	print_stack(stack_a);
 	pb(&stack_a, &stack_b);
 	print_stack(stack_b);
