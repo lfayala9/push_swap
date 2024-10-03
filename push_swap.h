@@ -36,6 +36,10 @@ size_t	ft_strlen(const char *str);
 int		ft_printf(char const *s, ...);
 int		ft_isdigit(int num);
 
+/*STACK UTILS*/
+
+void	free_stack(t_stack *stack);
+t_stack	*init_stack(t_stack **stack, char **av, int start);
 
 /*MOVES*/
 void	pb(t_stack **stack_a, t_stack **stack_b);

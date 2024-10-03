@@ -17,6 +17,7 @@ SRCS = ./instructions/reverse_rotate.c \
 	   ./instructions/push.c \
 	   ./instructions/swap.c \
 	   ./error_handlers/arg_errors.c \
+	   ./utils/create_stack.c
 
 OBJS = $(SRCS:.c=.o)
 
