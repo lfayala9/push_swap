@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include <limits.h>
 # include "./libft/libft.h"
 
 typedef struct s_stack
@@ -40,6 +41,8 @@ int		ft_isdigit(int num);
 
 void	free_stack(t_stack *stack);
 t_stack	*init_stack(t_stack **stack, char **av, int start);
+t_stack	*get_min(t_stack **stack);
+void	sort_three(t_stack **stack);
 
 /*MOVES*/
 void	pb(t_stack **stack_a, t_stack **stack_b);
@@ -58,8 +61,6 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	rrb(t_stack **stack_b);
 
 /*ERROR HANDLERS*/
-void	few_arguments(void);
-void	check_dup(int ac, char **av);
 void	check_input(int ac, char **av);
 
 #endif
