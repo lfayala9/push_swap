@@ -31,6 +31,7 @@ typedef struct s_stack
 }	t_stack;
 
 /* LIBFT FUNCTIONS */
+
 char	**ft_split(char const *s, char c);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t	ft_strlen(const char *str);
@@ -44,8 +45,10 @@ t_stack	*get_min(t_stack **stack);
 t_stack	*get_max(t_stack **stack);
 void	sort_three(t_stack **stack);
 void	free_stack(t_stack *stack);
+int		stack_size(t_stack *lst);
 
 /*MOVES*/
+
 void	pb(t_stack **stack_a, t_stack **stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);

@@ -12,6 +12,21 @@
 
 #include "../push_swap.h"
 
+int	stack_size(t_stack *lst)
+{
+	size_t	i;
+	t_stack	*cur;
+
+	i = 0;
+	cur = lst;
+	while (cur != NULL)
+	{
+		cur = cur->next;
+		i++;
+	}
+	return (i);
+}
+
 void	free_stack(t_stack *stack)
 {
 	t_stack	*tmp;
