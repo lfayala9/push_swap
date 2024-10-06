@@ -39,10 +39,11 @@ int		ft_isdigit(int num);
 
 /*STACK UTILS*/
 
-void	free_stack(t_stack *stack);
 t_stack	*init_stack(t_stack **stack, char **av, int start);
 t_stack	*get_min(t_stack **stack);
+t_stack	*get_max(t_stack **stack);
 void	sort_three(t_stack **stack);
+void	free_stack(t_stack *stack);
 
 /*MOVES*/
 void	pb(t_stack **stack_a, t_stack **stack_b);
@@ -60,7 +61,7 @@ void	rra(t_stack **stack_a);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	rrb(t_stack **stack_b);
 
-/*ERROR HANDLERS*/
+/*ERROR HANDLER*/
 void	check_input(int ac, char **av);
 
 #endif

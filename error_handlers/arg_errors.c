@@ -12,6 +12,12 @@
 
 #include "../push_swap.h"
 
+void	print_error(char *error)
+{
+	write(2, error, ft_strlen(error));
+	exit(EXIT_FAILURE);
+}
+
 int	is_digit(const char *str)
 {
 	int	i;
@@ -22,7 +28,7 @@ int	is_digit(const char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			exit(EXIT_FAILURE);
+			print_error("ERROR: Only digits are allowed");
 		i++;
 	}
 	return (1);
@@ -42,10 +48,7 @@ void	check_dup(int ac, char **av)
 			if (is_digit(av[i]) && is_digit(av[j]))
 			{
 				if (ft_atoll(av[i]) == ft_atoll(av[j]))
-				{
-					write(2, "ERROR: Duplicates are forbidden", 32);
-					exit(EXIT_FAILURE);
-				}
+					print_error("ERROR: Duplicates are forbidden");
 			}
 			j++;
 		}
