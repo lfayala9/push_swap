@@ -12,6 +12,21 @@
 
 #include "push_swap.h"
 
+// void	push_swap(t_stack **stack_a, t_stack **stack_b)
+// {
+// 	size_t	size;
+
+// 	size = stack_size(*stack_a);
+// }
+
+void	check_input(int ac, char **av)
+{
+	if (ac == 2)
+		check_str(av);
+	else if (ac > 2)
+		check_dup(ac, av);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -30,6 +45,5 @@ int	main(int ac, char **av)
 	if (stack_size(stack_a) == 3)
 		sort_three(&stack_a);
 	free_stack(stack_a);
-	free_stack(stack_b);
 	return (0);
 }

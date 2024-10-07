@@ -69,10 +69,3 @@ void	check_str(char **av)
 	free(numbers);
 }
 
-void	check_input(int ac, char **av)
-{
-	if (ac == 2)
-		check_str(av);
-	else if (ac > 2)
-		check_dup(ac, av);
-}

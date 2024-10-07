@@ -45,6 +45,7 @@ t_stack	*get_min(t_stack **stack);
 t_stack	*get_max(t_stack **stack);
 void	sort_three(t_stack **stack);
 void	free_stack(t_stack *stack);
+int		is_sorted(t_stack *stack);
 int		stack_size(t_stack *lst);
 
 /*MOVES*/
@@ -66,5 +67,8 @@ void	rrb(t_stack **stack_b);
 
 /*ERROR HANDLER*/
 void	check_input(int ac, char **av);
+void	check_dup(int ac, char **av);
+void	check_str(char **av);
+
 
 #endif
