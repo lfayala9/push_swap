@@ -42,8 +42,8 @@ int	main(int ac, char **av)
 	}
 	else if (ac > 2)
 		stack_a = init_stack(&stack_a, av, 1);
-	if (stack_size(stack_a) == 3)
-		sort_three(&stack_a);
+	simple_sort(&stack_a, stack_size(stack_a));
 	free_stack(stack_a);
+	free_stack(stack_b);
 	return (0);
 }

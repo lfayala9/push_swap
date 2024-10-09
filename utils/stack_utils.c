@@ -27,7 +27,7 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-int	stack_size(t_stack *lst)
+size_t	stack_size(t_stack *lst)
 {
 	size_t	i;
 	t_stack	*cur;

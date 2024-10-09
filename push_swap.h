@@ -25,6 +25,7 @@ typedef struct s_stack
 	int				pos;
 	int				cheap_move;
 	int				is_above;
+	int				cost;
 	struct s_stack	*target;
 	struct s_stack	*next;
 	struct s_stack	*prev;
@@ -43,10 +44,10 @@ int		ft_isdigit(int num);
 t_stack	*init_stack(t_stack **stack, char **av, int start);
 t_stack	*get_min(t_stack **stack);
 t_stack	*get_max(t_stack **stack);
-void	sort_three(t_stack **stack);
+size_t	stack_size(t_stack *lst);
+void	simple_sort(t_stack **stack, size_t size);
 void	free_stack(t_stack *stack);
 int		is_sorted(t_stack *stack);
-int		stack_size(t_stack *lst);
 
 /*MOVES*/
 
@@ -69,6 +70,5 @@ void	rrb(t_stack **stack_b);
 void	check_input(int ac, char **av);
 void	check_dup(int ac, char **av);
 void	check_str(char **av);
-
 
 #endif
