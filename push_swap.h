@@ -45,9 +45,14 @@ t_stack	*init_stack(t_stack **stack, char **av, int start);
 t_stack	*get_min(t_stack **stack);
 t_stack	*get_max(t_stack **stack);
 size_t	stack_size(t_stack *lst);
-void	simple_sort(t_stack **stack, size_t size);
 void	free_stack(t_stack *stack);
+char	**cleaner(char **result);
+
+/*SORTERS*/
+void	sort_three(t_stack **stack);
+void	simple_sort(t_stack **stack, size_t size);
 int		is_sorted(t_stack *stack);
+void	sort_stack(t_stack **stack_a, t_stack **stack_b, size_t size);
 
 /*MOVES*/
 

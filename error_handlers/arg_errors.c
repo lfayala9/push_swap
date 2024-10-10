@@ -66,6 +66,5 @@ void	check_str(char **av)
 	while (numbers[count])
 		count++;
 	check_dup(count, numbers);
-	free(numbers);
+	cleaner(numbers);
 }
-

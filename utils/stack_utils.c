@@ -17,13 +17,9 @@ int	is_sorted(t_stack *stack)
 	while (stack->next)
 	{
 		if (stack->val > stack->next->val)
-		{
-			ft_printf("not sorted");
 			return (0);
-		}
 		stack = stack->next;
 	}
-	ft_printf("sorted");
 	return (1);
 }
 
@@ -79,4 +75,18 @@ t_stack	*init_stack(t_stack **stack, char **av, int start)
 		start++;
 	}
 	return (*stack);
+}
+
+char	**cleaner(char **result)
+{
+	size_t	j;
+
+	j = 0;
+	while (result[j] != NULL)
+	{
+		free(result[j]);
+		j++;
+	}
+	free(result);
+	return (0);
 }
