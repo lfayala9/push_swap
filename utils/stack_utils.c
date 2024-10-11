@@ -76,17 +76,3 @@ t_stack	*init_stack(t_stack **stack, char **av, int start)
 	}
 	return (*stack);
 }
-
-char	**cleaner(char **result)
-{
-	size_t	j;
-
-	j = 0;
-	while (result[j] != NULL)
-	{
-		free(result[j]);
-		j++;
-	}
-	free(result);
-	return (0);
-}

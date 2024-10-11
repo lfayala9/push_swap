@@ -6,7 +6,7 @@
 /*   By: layala-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 11:51:43 by layala-s          #+#    #+#             */
-/*   Updated: 2024/09/17 11:51:46 by layala-s         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:26:17 by layala-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,12 @@ size_t	stack_size(t_stack *lst);
 void	free_stack(t_stack *stack);
 char	**cleaner(char **result);
 
-/*SORTERS*/
+/*SORT FUNCTIONS*/
 void	sort_three(t_stack **stack);
 void	simple_sort(t_stack **stack, size_t size);
 int		is_sorted(t_stack *stack);
 void	sort_stack(t_stack **stack_a, t_stack **stack_b, size_t size);
+void	get_index(t_stack *stack);
 
 /*MOVES*/
 
@@ -77,3 +78,4 @@ void	check_dup(int ac, char **av);
 void	check_str(char **av);
 
 #endif
+

@@ -47,3 +47,22 @@ t_stack	*get_max(t_stack **stack)
 	}
 	return (big);
 }
+
+void	get_index(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	if (!stack)
+		return ;
+	while (stack)
+	{
+		stack->pos = i;
+		if (i <= stack_size(stack) / 2)
+			stack->is_above = 1;
+		else
+			stack->is_above = 0;
+		stack = stack->next;
+		i++;
+	}
+}

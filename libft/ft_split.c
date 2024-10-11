@@ -33,7 +33,7 @@ static int	counter_char(const char *string, char c)
 	return (count);
 }
 
-static char	**cleaner(char **result)
+char	**cleaner(char **result)
 {
 	size_t	j;
 

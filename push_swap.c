@@ -6,18 +6,11 @@
 /*   By: layala-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 19:15:04 by layala-s          #+#    #+#             */
-/*   Updated: 2024/09/22 19:15:09 by layala-s         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:25:35 by layala-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// void	push_swap(t_stack **stack_a, t_stack **stack_b)
-// {
-// 	size_t	size;
-
-// 	size = stack_size(*stack_a);
-// }
 
 void	check_input(int ac, char **av)
 {
