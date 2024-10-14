@@ -24,7 +24,6 @@ int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	size_t	stack_a_len;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -37,11 +36,15 @@ int	main(int ac, char **av)
 	}
 	else if (ac > 2)
 		stack_a = init_stack(&stack_a, av, 1);
-	stack_a_len = stack_size(stack_a);
-	if (stack_a_len <= 3)
-		simple_sort(&stack_a, stack_a_len);
-	else
-		sort_stack(&stack_a, &stack_b, stack_a_len);
+	if (!is_sorted(stack_a))
+	{
+		if (stack_size(stack_a) == 2)
+			sa(&stack_a);
+		else if (stack_size(stack_a) == 3)
+			sort_three(&stack_a);
+		else
+			sort_stack(&stack_a, &stack_b);
+	}
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

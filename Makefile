@@ -16,8 +16,10 @@ SRCS = ./instructions/reverse_rotate.c \
 	   ./instructions/rotate.c \
 	   ./instructions/push.c \
 	   ./instructions/swap.c \
-	   ./error_handlers/arg_errors.c \
+	   ./utils/arg_errors.c \
 	   ./utils/stack_utils.c \
+	   ./utils/sort_utils.c \
+	   ./utils/classify_utils.c \
 	   ./stack_sort/simple_sort.c \
 	   ./stack_sort/turk_sort.c \
 

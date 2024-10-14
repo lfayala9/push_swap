@@ -17,14 +17,15 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include <limits.h>
+# include <stdbool.h>
 # include "./libft/libft.h"
 
 typedef struct s_stack
 {
 	int				val;
 	int				pos;
-	int				cheap_move;
-	int				is_above;
+	bool			cheap_move;
+	bool			is_above;
 	int				cost;
 	struct s_stack	*target;
 	struct s_stack	*next;
@@ -44,7 +45,7 @@ int		ft_isdigit(int num);
 t_stack	*init_stack(t_stack **stack, char **av, int start);
 t_stack	*get_min(t_stack **stack);
 t_stack	*get_max(t_stack **stack);
-size_t	stack_size(t_stack *lst);
+int		stack_size(t_stack *stack);
 void	free_stack(t_stack *stack);
 char	**cleaner(char **result);
 
@@ -52,8 +53,13 @@ char	**cleaner(char **result);
 void	sort_three(t_stack **stack);
 void	simple_sort(t_stack **stack, size_t size);
 int		is_sorted(t_stack *stack);
-void	sort_stack(t_stack **stack_a, t_stack **stack_b, size_t size);
-void	get_index(t_stack *stack);
+void	sort_stack(t_stack **stack_a, t_stack **stack_b);
+void	get_median(t_stack *stack);
+void	set_nodes_a(t_stack *stack_a, t_stack *stack_b);
+void	set_nodes_b(t_stack *stack_a, t_stack *stack_b);
+void	set_target_a(t_stack *stack_a, t_stack *stack_b);
+void	set_target_b(t_stack *stack_a, t_stack *stack_b);
+t_stack	*get_cheapest(t_stack *stack);
 
 /*MOVES*/
 
@@ -78,4 +84,3 @@ void	check_dup(int ac, char **av);
 void	check_str(char **av);
 
 #endif
-

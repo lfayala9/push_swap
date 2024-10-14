@@ -29,5 +29,5 @@ void	simple_sort(t_stack **stack, size_t size)
 	if (size == 3)
 		sort_three(stack);
 	else if (size == 2)
-		sa(stack);	
+		sa(stack);
 }

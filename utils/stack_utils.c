@@ -23,13 +23,13 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-size_t	stack_size(t_stack *lst)
+int	stack_size(t_stack *stack)
 {
-	size_t	i;
+	int	i;
 	t_stack	*cur;
 
 	i = 0;
-	cur = lst;
+	cur = stack;
 	while (cur != NULL)
 	{
 		cur = cur->next;
