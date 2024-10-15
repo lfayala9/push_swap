@@ -12,76 +12,46 @@
 
 #include "../push_swap.h"
 
-int	get_node_cost(t_stack *node, int len)
+t_stack	*get_target(t_stack *stack_a, t_stack *stack_b)
 {
-	if (node->is_above)
-		return (node->pos);
-	else
-		return (len - node->pos);
-}
+	t_stack	*target_min;
+	t_stack	*target_max;
+	t_stack	*node_b;
 
-int	get_target_cost(t_stack *node, int len)
-{
-	if (node->target->is_above)
-		return (node->target->pos);
-	else
-		return (len - node->target->pos);
-}
-
-void	set_push_cost(t_stack *stack_a, t_stack *stack_b)
-{
-	size_t	size_a;
-	size_t	size_b;
-
-	size_a = stack_size(stack_a);
-	size_b = stack_size(stack_b);
-	while (stack_a)
+	target_max = NULL;
+	target_min = NULL;
+	node_b = stack_b;
+	while (node_b)
 	{
-		stack_a->cost = get_node_cost(stack_a, size_a);
-		stack_a->cost = get_target_cost(stack_a, size_b);
-		stack_a = stack_a->next;
+		if (node_b->val < stack_a->val)
+		{
+			if (!target_min || node_b-> val > target_min->val)
+				target_min = node_b;
+		}
+		if (!target_max || node_b-> val > target_max->val)
+			target_max = node_b;
+		node_b = node_b->next;
+	}
+	if (target_min)
+		return (target_min);
+	return (target_max);
+}
+
+void	set_target_a(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack	*node_a;
+
+	node_a = stack_a;
+	while (node_a)
+	{
+		node_a->target = get_target(node_a, stack_b);
+		node_a = node_a->next;
 	}
 }
 
 void	set_nodes_a(t_stack *stack_a, t_stack *stack_b)
 {
-	int		best_val;
-	t_stack	*cheapest;
-
 	get_median(stack_a);
 	get_median(stack_b);
 	set_target_a(stack_a, stack_b);
-	set_push_cost(stack_a, stack_b);
-
-	if (!stack_a)
-		return ;
-	best_val = INT_MAX;
-	while (stack_a)
-	{
-		if (stack_a->cost < best_val)
-		{
-			best_val = stack_a->cost;
-			cheapest = stack_a;
-		}
-		stack_a = stack_a->next;
-	}
-	cheapest->cheap_move = true;
-}
-void	set_nodes_b(t_stack *stack_a, t_stack *stack_b)
-{
-	get_median(stack_a);
-	get_median(stack_b);
-	set_target_b(stack_a, stack_b);
-}
-t_stack	*get_cheapest(t_stack *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack)
-	{
-		if (stack->cheap_move)
-			return (stack);
-		stack = stack->next;
-	}
-	return (NULL);
 }

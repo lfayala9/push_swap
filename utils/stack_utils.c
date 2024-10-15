@@ -25,7 +25,7 @@ int	is_sorted(t_stack *stack)
 
 int	stack_size(t_stack *stack)
 {
-	int	i;
+	int		i;
 	t_stack	*cur;
 
 	i = 0;

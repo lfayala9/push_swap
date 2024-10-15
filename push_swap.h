@@ -58,7 +58,6 @@ void	get_median(t_stack *stack);
 void	set_nodes_a(t_stack *stack_a, t_stack *stack_b);
 void	set_nodes_b(t_stack *stack_a, t_stack *stack_b);
 void	set_target_a(t_stack *stack_a, t_stack *stack_b);
-void	set_target_b(t_stack *stack_a, t_stack *stack_b);
 t_stack	*get_cheapest(t_stack *stack);
 
 /*MOVES*/

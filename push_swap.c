@@ -20,6 +20,28 @@ void	check_input(int ac, char **av)
 		check_dup(ac, av);
 }
 
+void print_stacks(t_stack *a, t_stack *b)
+{
+    ft_printf("Stack A:\n");
+    while (a != NULL)
+    {
+        ft_printf("Val: %d", a->val);
+        if (a->target)
+            ft_printf(" -> Target in B: %d", a->target->val);
+        else
+            ft_printf(" -> No target");
+        ft_printf("\n");
+        a = a->next;
+    }
+    ft_printf("\nStack B:\n");
+    while (b != NULL)
+    {
+        ft_printf("Val: %d\n", b->val);
+        b = b->next;
+    }
+    ft_printf("\n");
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -38,13 +60,13 @@ int	main(int ac, char **av)
 		stack_a = init_stack(&stack_a, av, 1);
 	if (!is_sorted(stack_a))
 	{
-		if (stack_size(stack_a) == 2)
-			sa(&stack_a);
-		else if (stack_size(stack_a) == 3)
-			sort_three(&stack_a);
+		if (stack_size(stack_a) <= 3)
+			simple_sort(&stack_a, stack_size(stack_a));
 		else
 			sort_stack(&stack_a, &stack_b);
 	}
+	set_target_a(stack_a, stack_b);
+	print_stacks(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
