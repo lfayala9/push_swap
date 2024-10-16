@@ -12,40 +12,70 @@
 
 #include "../push_swap.h"
 
-t_stack	*get_min(t_stack **stack)
-{
-	t_stack	*small;
-	t_stack	*curr;
+// t_stack	*get_min(t_stack **stack)
+// {
+// 	t_stack	*small;
+// 	t_stack	*curr;
 
-	if (!stack || !(*stack))
-		return (NULL);
-	curr = *stack;
-	small = *stack;
-	while (curr)
-	{
-		if (curr->val < small->val)
-			small = curr;
-		curr = curr->next;
-	}
-	return (small);
+// 	if (!stack || !(*stack))
+// 		return (NULL);
+// 	curr = *stack;
+// 	small = *stack;
+// 	while (curr)
+// 	{
+// 		if (curr->val < small->val)
+// 			small = curr;
+// 		curr = curr->next;
+// 	}
+// 	return (small);
+// }
+
+// t_stack	*get_max(t_stack **stack)
+// {
+// 	t_stack	*big;
+// 	t_stack	*curr;
+
+// 	if (!stack || !(*stack))
+// 		return (NULL);
+// 	curr = *stack;
+// 	big = *stack;
+// 	while (curr)
+// 	{
+// 		if (curr->val > big->val)
+// 			big = curr;
+// 		curr = curr->next;
+// 	}
+// 	return (big);
+// }
+int	get_node_cost(t_stack *node, int size)
+{
+	if (node->is_above)
+		return (node->pos);
+	else
+		return (size - node->pos);
 }
 
-t_stack	*get_max(t_stack **stack)
+int	get_target_cost(t_stack *node, int size)
 {
-	t_stack	*big;
-	t_stack	*curr;
+	if (node->target->is_above)
+		return (node->target->pos);
+	else
+		return (size - node->target->pos);
+}
 
-	if (!stack || !(*stack))
-		return (NULL);
-	curr = *stack;
-	big = *stack;
-	while (curr)
+void	set_cost(t_stack *stack_a, t_stack *stack_b)
+{
+	int	size_a;
+	int	size_b;
+
+	size_a = stack_size(stack_a);
+	size_b = stack_size(stack_b);
+	while (stack_b)
 	{
-		if (curr->val > big->val)
-			big = curr;
-		curr = curr->next;
+		stack_b->cost = get_node_cost(stack_b, size_b);
+		stack_b->cost += get_target_cost(stack_b, size_a);
+		stack_b = stack_b->next;
 	}
-	return (big);
 }
 
 void	get_median(t_stack *stack)

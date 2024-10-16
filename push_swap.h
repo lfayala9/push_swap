@@ -55,9 +55,9 @@ void	simple_sort(t_stack **stack, size_t size);
 int		is_sorted(t_stack *stack);
 void	sort_stack(t_stack **stack_a, t_stack **stack_b);
 void	get_median(t_stack *stack);
-void	set_nodes_a(t_stack *stack_a, t_stack *stack_b);
-void	set_nodes_b(t_stack *stack_a, t_stack *stack_b);
-void	set_target_a(t_stack *stack_a, t_stack *stack_b);
+void	set_nodes(t_stack *stack_a, t_stack *stack_b);
+void	set_target(t_stack *stack_a, t_stack *stack_b);
+void	set_cost(t_stack *stack_a, t_stack *stack_b);
 t_stack	*get_cheapest(t_stack *stack);
 
 /*MOVES*/

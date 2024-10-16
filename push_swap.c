@@ -22,22 +22,22 @@ void	check_input(int ac, char **av)
 
 void print_stacks(t_stack *a, t_stack *b)
 {
-    ft_printf("Stack A:\n");
-    while (a != NULL)
+    ft_printf("Stack B:\n");
+    while (b != NULL)
     {
-        ft_printf("Val: %d", a->val);
-        if (a->target)
-            ft_printf(" -> Target in B: %d", a->target->val);
+        ft_printf("Val: %d", b->val);
+        if (b->target)
+            ft_printf(" -> Target in A: %d", b->target->val);
         else
             ft_printf(" -> No target");
         ft_printf("\n");
-        a = a->next;
-    }
-    ft_printf("\nStack B:\n");
-    while (b != NULL)
-    {
-        ft_printf("Val: %d\n", b->val);
         b = b->next;
+    }
+    ft_printf("\nStack A:\n");
+    while (a != NULL)
+    {
+        ft_printf("Val: %d\n", a->val);
+        a = a->next;
     }
     ft_printf("\n");
 }
@@ -65,7 +65,10 @@ int	main(int ac, char **av)
 		else
 			sort_stack(&stack_a, &stack_b);
 	}
-	set_target_a(stack_a, stack_b);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	set_target(stack_a, stack_b);
 	print_stacks(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
