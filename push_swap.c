@@ -25,7 +25,7 @@ void print_stacks(t_stack *a, t_stack *b)
     ft_printf("Stack B:\n");
     while (b != NULL)
     {
-        ft_printf("Val: %d", b->val);
+        ft_printf("Val: %d, cost: %d", b->val, b->cost);
         if (b->target)
             ft_printf(" -> Target in A: %d", b->target->val);
         else
@@ -36,7 +36,7 @@ void print_stacks(t_stack *a, t_stack *b)
     ft_printf("\nStack A:\n");
     while (a != NULL)
     {
-        ft_printf("Val: %d\n", a->val);
+        ft_printf("Val: %d, cost: %d\n", a->val, a->cost);
         a = a->next;
     }
     ft_printf("\n");
@@ -68,7 +68,10 @@ int	main(int ac, char **av)
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
+	get_median(stack_a);
+	get_median(stack_b);
 	set_target(stack_a, stack_b);
+	set_cost(stack_a, stack_b);
 	print_stacks(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
