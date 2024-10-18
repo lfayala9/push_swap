@@ -20,27 +20,27 @@ void	check_input(int ac, char **av)
 		check_dup(ac, av);
 }
 
-void print_stacks(t_stack *a, t_stack *b)
-{
-    ft_printf("Stack B:\n");
-    while (b != NULL)
-    {
-        ft_printf("Val: %d, cost: %d", b->val, b->cost);
-        if (b->target)
-            ft_printf(" -> Target in A: %d", b->target->val);
-        else
-            ft_printf(" -> No target");
-        ft_printf("\n");
-        b = b->next;
-    }
-    ft_printf("\nStack A:\n");
-    while (a != NULL)
-    {
-        ft_printf("Val: %d, cost: %d\n", a->val, a->cost);
-        a = a->next;
-    }
-    ft_printf("\n");
-}
+// void print_stacks(t_stack *a, t_stack *b)
+// {
+//     ft_printf("Stack B:\n");
+//     while (b != NULL)
+//     {
+//         ft_printf("Val: %d, cost: %d, is_cheap: %d", b->val, b->cost, b->cheap_move);
+//         if (b->target)
+//             ft_printf(" -> Target in A: %d", b->target->val);
+//         else
+//             ft_printf(" -> No target");
+//         ft_printf("\n");
+//         b = b->next;
+//     }
+//     ft_printf("\nStack A:\n");
+//     while (a != NULL)
+//     {
+//         ft_printf("Val: %d, cost: %d\n", a->val, a->cost);
+//         a = a->next;
+//     }
+//     ft_printf("\n");
+// }
 
 int	main(int ac, char **av)
 {
@@ -63,16 +63,15 @@ int	main(int ac, char **av)
 		if (stack_size(stack_a) <= 3)
 			simple_sort(&stack_a, stack_size(stack_a));
 		else
-			sort_stack(&stack_a, &stack_b);
+			sort_stack(&stack_a, &stack_b, stack_size(stack_a));
 	}
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	get_median(stack_a);
-	get_median(stack_b);
-	set_target(stack_a, stack_b);
-	set_cost(stack_a, stack_b);
-	print_stacks(stack_a, stack_b);
+	// pb(&stack_a, &stack_b);
+	// get_median(stack_a);
+	// get_median(stack_b);
+	// set_target(stack_a, stack_b);
+	// set_cost(stack_a, stack_b);
+	// get_cheapest(stack_b);
+	// print_stacks(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

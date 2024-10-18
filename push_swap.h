@@ -53,7 +53,7 @@ char	**cleaner(char **result);
 void	sort_three(t_stack **stack);
 void	simple_sort(t_stack **stack, size_t size);
 int		is_sorted(t_stack *stack);
-void	sort_stack(t_stack **stack_a, t_stack **stack_b);
+void	sort_stack(t_stack **stack_a, t_stack **stack_b, int size);
 void	get_median(t_stack *stack);
 void	set_nodes(t_stack *stack_a, t_stack *stack_b);
 void	set_target(t_stack *stack_a, t_stack *stack_b);

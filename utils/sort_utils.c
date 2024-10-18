@@ -49,10 +49,33 @@ void	set_target(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+t_stack	*get_cheapest(t_stack *stack_b)
+{
+	t_stack	*cheapest;
+	int		min_cost;
+
+	cheapest = stack_b;
+	min_cost = INT_MAX;
+	if (!stack_b)
+		return (NULL);
+	while (stack_b)
+	{
+		if (stack_b->cost < min_cost)
+		{
+			min_cost = stack_b->cost;
+			cheapest = stack_b;
+		}
+		stack_b = stack_b->next;
+	}
+	cheapest->cheap_move = true;
+	return (cheapest);
+}
+
 void	set_nodes(t_stack *stack_a, t_stack *stack_b)
 {
 	get_median(stack_a);
 	get_median(stack_b);
 	set_target(stack_a, stack_b);
 	set_cost(stack_a, stack_b);
+	get_cheapest(stack_b);
 }
