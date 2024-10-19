@@ -47,4 +47,3 @@ int	main(int ac, char **av)
 	free_stack(stack_b);
 	return (0);
 }
-
