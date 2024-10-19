@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: layala-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:55:49 by layala-s          #+#    #+#             */
-/*   Updated: 2024/10/16 12:15:41 by layala-s         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:55:53 by layala-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,67 +15,43 @@
 t_stack	*get_target(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*target_min;
-	t_stack	*target;
-	t_stack	*node_a;
-
-	target_min = NULL;
-	target = NULL;
-	node_a = stack_a;
-	while (node_a)
-	{
-		if (node_a->val > stack_b->val)
-		{
-			if (!target || node_a-> val < target->val)
-				target = node_a;
-		}
-		if (!target_min || node_a-> val < target_min->val)
-			target_min = node_a;
-		node_a = node_a->next;
-	}
-	if (target)
-		return (target);
-	return (target_min);
-}
-
-void	set_target(t_stack *stack_a, t_stack *stack_b)
-{
+	t_stack	*target_max;
 	t_stack	*node_b;
 
+	target_max = NULL;
+	target_min = NULL;
 	node_b = stack_b;
 	while (node_b)
 	{
-		node_b->target = get_target(stack_a, node_b);
+		if (node_b->val < stack_a->val) // a: 4 2 3 10 -5 b: 1 9 
+		{
+			if (!target_min || node_b->val > target_min->val)
+				target_min = node_b;
+		}
+		if (!target_max || node_b->val > target_max->val)
+			target_max = node_b;
 		node_b = node_b->next;
 	}
+	if (target_min)
+		return (target_min);
+	return (target_max);
 }
 
-t_stack	*get_cheapest(t_stack *stack_b)
+void	set_target_a(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack	*cheapest;
-	int		min_cost;
+	t_stack	*node_a;
 
-	cheapest = stack_b;
-	min_cost = INT_MAX;
-	if (!stack_b)
-		return (NULL);
-	while (stack_b)
+	node_a = stack_a;
+	while (node_a)
 	{
-		if (stack_b->cost < min_cost)
-		{
-			min_cost = stack_b->cost;
-			cheapest = stack_b;
-		}
-		stack_b = stack_b->next;
+		node_a->target = get_target(node_a, stack_b);
+		node_a = node_a->next;
 	}
-	cheapest->cheap_move = true;
-	return (cheapest);
 }
 
-void	set_nodes(t_stack *stack_a, t_stack *stack_b)
+void	set_nodes_a(t_stack *stack_a, t_stack *stack_b)
 {
 	get_median(stack_a);
 	get_median(stack_b);
-	set_target(stack_a, stack_b);
-	set_cost(stack_a, stack_b);
-	get_cheapest(stack_b);
+	set_target_a(stack_a, stack_b);
 }
