@@ -30,23 +30,6 @@ t_stack	*get_min(t_stack **stack)
 	return (small);
 }
 
-// t_stack	*get_max(t_stack **stack)
-// {
-// 	t_stack	*big;
-// 	t_stack	*curr;
-
-// 	if (!stack || !(*stack))
-// 		return (NULL);
-// 	curr = *stack;
-// 	big = *stack;
-// 	while (curr)
-// 	{
-// 		if (curr->val > big->val)
-// 			big = curr;
-// 		curr = curr->next;
-// 	}
-// 	return (big);
-// }
 int	get_node_cost(t_stack *node, int size)
 {
 	if (node->is_above)

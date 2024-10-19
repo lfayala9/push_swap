@@ -79,26 +79,7 @@ void	do_moves(t_stack **stack_a, t_stack **stack_b)
 
 void	sort_stack(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	// int	size_a;
 	t_stack	*min;
-	// size_a = stack_size(*stack_a);
-	// if (size-- > 3 && !is_sorted(*stack_a))
-	// 	pb(stack_a, stack_b);
-	// if (size-- > 3 && !is_sorted(*stack_a))
-	// 	pb(stack_a, stack_b);
-	// while (size-- > 3 && !is_sorted(*stack_a))
-	// {
-	// 	// set_nodes_a(*stack_a, *stack_b);
-	// 	// do_moves_a(stack_a, stack_b);
-	// }
-	// sort_three(stack_a);
-	// while (*stack_b)
-	// {
-	// 	set_nodes_b(*stack_a, *stack_b);
-	// 	do_moves_b(stack_a, stack_b);
-	// }
-	// get_median(*stack_a);
-	// min_on_top(stack_a);
 	while (size -- > 3)
 		pb(stack_a, stack_b);
 	sort_three(stack_a);
