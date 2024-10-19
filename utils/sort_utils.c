@@ -79,4 +79,3 @@ void	set_nodes(t_stack *stack_a, t_stack *stack_b)
 	set_cost(stack_a, stack_b);
 	get_cheapest(stack_b);
 }
-
