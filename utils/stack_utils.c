@@ -50,6 +50,23 @@ void	free_stack(t_stack *stack)
 	}
 }
 
+t_stack	*get_cheapest(t_stack *stack)
+{
+	t_stack	*cheap;
+
+	cheap = stack;
+	while (stack)
+	{
+		if (stack->cheap_move)
+		{
+			cheap = stack;
+			return (cheap);
+		}
+		stack = stack->next;
+	}
+	return (cheap);
+}
+
 t_stack	*init_stack(t_stack **stack, char **av, int start)
 {
 	t_stack	*node;

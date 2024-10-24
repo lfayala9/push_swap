@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: layala-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:55:49 by layala-s          #+#    #+#             */
-/*   Updated: 2024/10/03 12:55:53 by layala-s         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:15:41 by layala-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,20 @@ void	set_target(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-t_stack	*get_cheapest(t_stack *stack_b)
+void	set_cheapest(t_stack *stack_b)
 {
 	t_stack	*cheapest;
-	int		min_cost;
 
 	cheapest = stack_b;
-	min_cost = INT_MAX;
 	if (!stack_b)
-		return (NULL);
+		return ;
 	while (stack_b)
 	{
-		if (stack_b->cost < min_cost)
-		{
-			min_cost = stack_b->cost;
+		if (stack_b->cost < cheapest->cost)
 			cheapest = stack_b;
-		}
 		stack_b = stack_b->next;
 	}
 	cheapest->cheap_move = true;
-	return (cheapest);
 }
 
 void	set_nodes(t_stack *stack_a, t_stack *stack_b)
@@ -77,5 +71,5 @@ void	set_nodes(t_stack *stack_a, t_stack *stack_b)
 	get_median(stack_b);
 	set_target(stack_a, stack_b);
 	set_cost(stack_a, stack_b);
-	get_cheapest(stack_b);
+	set_cheapest(stack_b);
 }

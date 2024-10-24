@@ -28,7 +28,9 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	check_input(ac, av);
-	if (ac == 2)
+	if (ac < 2)
+		return (0);
+	else if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
 		stack_a = init_stack(&stack_a, av, 0);
@@ -44,6 +46,5 @@ int	main(int ac, char **av)
 			sort_stack(&stack_a, &stack_b, stack_size(stack_a));
 	}
 	free_stack(stack_a);
-	free_stack(stack_b);
 	return (0);
 }

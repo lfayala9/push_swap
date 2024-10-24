@@ -14,7 +14,7 @@
 
 void	print_error(void)
 {
-	write(2, "Error", 5);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
@@ -66,6 +66,11 @@ void	check_str(char **av)
 	numbers = ft_split(av[1], ' ');
 	while (numbers[count])
 		count++;
+	if (numbers[0] && numbers[1])
+	{
+		if (ft_atoll(numbers[0]) == ft_atoll(numbers[1]))
+			print_error();
+	}
 	check_dup(count, numbers);
 	cleaner(numbers);
 }
